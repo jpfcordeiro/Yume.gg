@@ -2,7 +2,37 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FaTimes, FaMusic } from 'react-icons/fa';
+
 import SpotifyPlayer from 'react-spotify-web-playback';
+
+
+// Playlists públicas fixas (sem login)
+const PUBLIC_PLAYLISTS = [
+  {
+    id: '37i9dQZF1DXdPec7aLTmlC',
+    name: 'Lofi Girl',
+    cover: 'https://i.scdn.co/image/ab67706f00000002c4e3e6e6e6e6e6e6e6e6e6e6',
+    url: 'https://open.spotify.com/playlist/37i9dQZF1DXdPec7aLTmlC',
+  },
+  {
+    id: '37i9dQZF1DX7KNKjOK0o75',
+    name: 'Anime Now',
+    cover: 'https://i.scdn.co/image/ab67706f00000002b2e3e6e6e6e6e6e6e6e6e6e6',
+    url: 'https://open.spotify.com/playlist/37i9dQZF1DX7KNKjOK0o75',
+  },
+  {
+    id: '37i9dQZF1DX0SM0LYsmbMT',
+    name: 'Kawaii Future Bass',
+    cover: 'https://i.scdn.co/image/ab67706f00000002e3e6e6e6e6e6e6e6e6e6e6e6',
+    url: 'https://open.spotify.com/playlist/37i9dQZF1DX0SM0LYsmbMT',
+  },
+  {
+    id: '37i9dQZF1DX7YCknf2jT6s',
+    name: 'J-Pop Rising',
+    cover: 'https://i.scdn.co/image/ab67706f00000002d2e3e6e6e6e6e6e6e6e6e6e6',
+    url: 'https://open.spotify.com/playlist/37i9dQZF1DX7YCknf2jT6s',
+  },
+];
 
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = window.location.origin;
@@ -20,13 +50,16 @@ function getAuthUrl() {
 }
 
 
+
 export default function MusicWidget() {
   const [open, setOpen] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [token, setToken] = useState(null);
   const [playlists, setPlaylists] = useState([]);
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(PUBLIC_PLAYLISTS[0].id);
   const [loading, setLoading] = useState(false);
+  const [showPublic, setShowPublic] = useState(true);
+
 
   // Detecta token OAuth no hash da URL
   useEffect(() => {
@@ -34,9 +67,11 @@ export default function MusicWidget() {
       const params = new URLSearchParams(window.location.hash.replace('#', '?'));
       const t = params.get('access_token');
       setToken(t);
+      setShowPublic(false);
       window.history.replaceState(null, '', window.location.pathname);
     }
   }, []);
+
 
   // Busca playlists do usuário autenticado
   useEffect(() => {
@@ -55,7 +90,9 @@ export default function MusicWidget() {
       .finally(() => setLoading(false));
   }, [token]);
 
+
   function handleLogin() {
+    setShowPublic(false);
     window.open(getAuthUrl(), '_self');
   }
 
@@ -81,15 +118,47 @@ export default function MusicWidget() {
             transition={{ type: 'spring', stiffness: 180, damping: 18 }}
           >
             <div className="music-widget-title">Playlists Kawaii 🎶</div>
-            {!token ? (
+            {showPublic && (
+              <>
+                <div className="music-widget-list">
+                  {PUBLIC_PLAYLISTS.map(pl => (
+                    <div
+                      key={pl.id}
+                      className={`music-widget-item${active === pl.id ? ' active' : ''}`}
+                      onClick={() => setActive(pl.id)}
+                    >
+                      <img src={pl.cover} alt={pl.name} className="music-widget-cover" />
+                      <span className="music-widget-name">{pl.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="music-widget-player">
+                  <div style={{margin: '0.7em 0', textAlign: 'center'}}>
+                    <a href={PUBLIC_PLAYLISTS.find(pl => pl.id === active)?.url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{marginBottom: 8, display: 'inline-block'}}>
+                      Ouvir no Spotify
+                    </a>
+                  </div>
+                  <div className="music-widget-tip">Dica: Clique em uma playlist para ouvir no Spotify. Para playlists pessoais, conecte sua conta!</div>
+                </div>
+                <div style={{marginTop: 12, textAlign: 'center'}}>
+                  <button className="btn-secondary" onClick={() => setShowPublic(false)} style={{marginRight: 8}}>Conectar Spotify</button>
+                </div>
+              </>
+            )}
+            {!showPublic && !token ? (
               <button className="btn-primary" style={{marginBottom: 12, width: '100%'}} onClick={handleLogin}>
                 Conectar com Spotify
               </button>
             ) : loading ? (
-              <div style={{color: '#90a8ed', margin: '1.2em 0'}}>Carregando playlists...</div>
-            ) : playlists.length === 0 ? (
+              <div style={{color: '#90a8ed', margin: '1.2em 0'}}>
+                <div className="cute-loader">
+                  <div className="cute-paw"><span role="img" aria-label="Pata">🐾</span></div>
+                  <div className="cute-loader-text">Carregando playlists...</div>
+                </div>
+              </div>
+            ) : playlists.length === 0 && !showPublic && token ? (
               <div style={{color: '#f72585', margin: '1.2em 0'}}>Nenhuma playlist encontrada.</div>
-            ) : (
+            ) : !showPublic && token ? (
               <>
                 <div className="music-widget-list">
                   {playlists.map(pl => (
@@ -129,7 +198,7 @@ export default function MusicWidget() {
                     <div className="music-widget-tip">Dica: O player é customizado e kawaii! Use o Spotify para controle total.</div>
                 </div>
               </>
-            )}
+            ) : null}
           </motion.div>
         )}
       </AnimatePresence>

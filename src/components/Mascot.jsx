@@ -2,24 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const phrases = [
-  'Meow! Explore animes incríveis! ✨',
-  'Dica: Use palavras-chave para achar animes raros!',
-  'Sabia que gatos amam cultura otaku? 🐾',
-  'Clique em mim para uma nova dica kawaii!',
-  'Nyaa~ Já tomou água hoje? 💧',
-  'Otaku também precisa descansar! 😸',
-  'Busque por "Ghibli" e veja a magia! 🌸',
-];
+import mascotPhrases from '../utils/mascotPhrases';
+
+const basePhrases = mascotPhrases;
+
+function getMascotPhrases() {
+  let phrases = [...basePhrases];
+  try {
+    const ach = JSON.parse(localStorage.getItem('yumeAchievements') || '{}');
+    if (ach.firstCat?.unlocked) phrases.push('Parabéns pelo seu primeiro gatinho! 🏅');
+    if (ach.fiveCats?.unlocked) phrases.push('Você já viu 5 gatinhos! Cat lover! 😻');
+    if (ach.firstFav?.unlocked) phrases.push('Favoritou um gatinho! 🧡');
+    if (ach.streak3?.unlocked) phrases.push('3 dias seguidos! Você é dedicado(a)! 🔥');
+    if (ach.streak7?.unlocked) phrases.push('Uma semana de fofura! 🥇');
+  } catch {}
+  phrases.push('Compartilhe seu gatinho favorito com amigos!');
+  phrases.push('Já tentou buscar por "One Piece"?');
+  return phrases;
+}
+
 
 export default function Mascot() {
-  const [phrase, setPhrase] = useState(phrases[0]);
+  const [phrase, setPhrase] = useState(() => getMascotPhrases()[0]);
   const [show, setShow] = useState(true);
   const location = useLocation();
 
   // Troca frase a cada 9s
   useEffect(() => {
     const timer = setInterval(() => {
+      const phrases = getMascotPhrases();
       setPhrase(phrases[Math.floor(Math.random() * phrases.length)]);
     }, 9000);
     return () => clearInterval(timer);
@@ -27,13 +38,24 @@ export default function Mascot() {
 
   // Troca frase ao mudar de página e faz mascote reaparecer
   useEffect(() => {
+    const phrases = getMascotPhrases();
     setPhrase(phrases[Math.floor(Math.random() * phrases.length)]);
     setShow(true);
     // eslint-disable-next-line
   }, [location.pathname]);
 
+  // Atualiza frases ao desbloquear conquistas
+  useEffect(() => {
+    const handler = () => {
+      const phrases = getMascotPhrases();
+      setPhrase(phrases[Math.floor(Math.random() * phrases.length)]);
+    };
+    window.addEventListener('storage', handler);
+    return () => window.removeEventListener('storage', handler);
+  }, []);
 
   function handleMascotClick() {
+    const phrases = getMascotPhrases();
     setPhrase(phrases[Math.floor(Math.random() * phrases.length)]);
     setShow(false); // Mascote some ao clicar
   }
