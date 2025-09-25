@@ -16,6 +16,7 @@
     "react-spotify-web-playback": "^0.14.7"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.3",
     "vite": "^7.1.7"
   }
 }
