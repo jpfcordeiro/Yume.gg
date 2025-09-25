@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Mascot from './components/Mascot';
+import MusicWidget from './components/MusicWidget';
 import AnimeExplorerPage from './pages/AnimeExplorerPage';
 import GifGalleryPage from './pages/GifGalleryPage';
 import IconGeneratorPage from './pages/IconGeneratorPage';
@@ -14,9 +15,6 @@ import { AnimeProvider } from './contexts/AnimeContext';
 import { CuteProvider } from './contexts/CuteContext';
 import { GifProvider } from './contexts/GifContext';
 import { IconProvider } from './contexts/IconContext';
-
-
-
 
 export default function App() {
   return (
@@ -35,6 +33,7 @@ export default function App() {
               </Routes>
               <Footer />
               <Mascot />
+              <MusicWidget />
             </Router>
           </IconProvider>
         </GifProvider>

@@ -1,3 +1,134 @@
+/* Music Widget */
+.music-widget-root {
+  position: fixed;
+  left: 2vw;
+  bottom: 2vw;
+  z-index: 98;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.music-widget-btn {
+  background: linear-gradient(120deg, #23243a 70%, #f72585 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 16px #f7258533, 0 1px 8px #90a8ed33;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.18s, background 0.18s;
+  outline: none;
+}
+.music-widget-btn:hover, .music-widget-btn:focus {
+  background: linear-gradient(120deg, #f72585 60%, #23243a 100%);
+  box-shadow: 0 4px 24px #f72585aa, 0 2px 12px #90a8ed88;
+}
+.music-widget-panel {
+  background: linear-gradient(120deg, #23243a 80%, #f72585 120%);
+  color: #fff;
+  border-radius: 18px 18px 18px 8px;
+  box-shadow: 0 2px 24px #f7258533, 0 1px 8px #90a8ed33;
+  padding: 1.1rem 1.2rem 0.7rem 1.2rem;
+  min-width: 270px;
+  max-width: 320px;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  position: relative;
+}
+.music-widget-title {
+  font-family: 'VT323', monospace;
+  font-size: 1.18rem;
+  color: #f72585;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #f7258555;
+}
+.music-widget-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+  overflow-x: auto;
+}
+.music-widget-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.3rem 0.5rem;
+  background: rgba(255,255,255,0.04);
+  transition: background 0.18s, box-shadow 0.18s;
+  border: 2px solid transparent;
+}
+.music-widget-item.active, .music-widget-item:hover {
+  background: #f72585;
+  color: #fff;
+  box-shadow: 0 2px 12px #f7258555;
+  border: 2px solid #f72585;
+}
+.music-widget-cover {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  margin-bottom: 0.2rem;
+  box-shadow: 0 1px 8px #90a8ed33;
+}
+.music-widget-name {
+  font-size: 0.98rem;
+  font-family: 'VT323', monospace;
+  margin-top: 0.1rem;
+}
+.music-widget-player {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.music-widget-volume {
+  display: flex;
+  align-items: center;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.98rem;
+}
+.music-widget-volume-slider {
+  width: 90px;
+  accent-color: #f72585;
+}
+.music-widget-tip {
+  font-size: 0.89rem;
+  color: #90a8ed;
+  margin-top: 0.2rem;
+  font-family: 'VT323', monospace;
+}
+@media (max-width: 700px) {
+  .music-widget-root {
+    left: 1vw;
+    bottom: 1vw;
+    max-width: 95vw;
+  }
+  .music-widget-panel {
+    min-width: 180px;
+    max-width: 95vw;
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+    font-size: 0.98rem;
+  }
+  .music-widget-list {
+    gap: 0.3rem;
+  }
+  .music-widget-cover {
+    width: 36px;
+    height: 36px;
+  }
+}
 /* Mascote Kawaii */
 .yume-mascot-container {
   position: fixed;
