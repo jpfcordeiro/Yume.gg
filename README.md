@@ -43,6 +43,15 @@ O Yume.gg utiliza as seguintes APIs públicas para alimentar suas principais fun
 	Utilidade: Fornece curiosidades aleatórias sobre gatos, usadas na CuteCorner.  
 	[Documentação Catfact.ninja](https://catfact.ninja)
 
+
 - **LibreTranslate**  
-	Utilidade: Traduz automaticamente as curiosidades de gatos para português.  
-	[Documentação LibreTranslate](https://libretranslate.com/docs/)
+Utilidade: Traduz automaticamente as curiosidades de gatos para português.  
+[Documentação LibreTranslate](https://libretranslate.com/docs/)
+
+- **Spotify API**  
+Utilidade: Permite autenticação, busca e reprodução de playlists pessoais, além de exibir playlists públicas no MusicWidget.  
+[Documentação Spotify API](https://developer.spotify.com/documentation/web-api/)
+
+- **Pixabay Sounds**  
+Utilidade: Fornece efeitos sonoros online para conquistas, favoritos e interações (via URLs públicas).  
+[Documentação Pixabay Sounds](https://pixabay.com/api/docs/)
