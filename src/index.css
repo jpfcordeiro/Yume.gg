@@ -1,3 +1,59 @@
+/* Responsividade para AnimeExplorer e CuteCorner */
+@media (max-width: 900px) {
+  .anime-explorer {
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+  .anime-explorer > div,
+  .anime-explorer > aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .anime-explorer aside {
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border-radius: 10px !important;
+    padding: 12px 8px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .anime-explorer {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+  }
+  .anime-explorer > div,
+  .anime-explorer > aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .anime-explorer aside {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border-radius: 7px !important;
+    padding: 8px 4px !important;
+  }
+  .cute-img {
+    max-width: 98vw !important;
+    border-radius: 8px !important;
+  }
+  .cute-favorites {
+    gap: 6px !important;
+  }
+  .cute-favorites img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
 /* Ajustes compactos para elementos centrais */
 .page-container,
 .dashboard-container {

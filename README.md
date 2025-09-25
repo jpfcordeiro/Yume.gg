@@ -34,6 +34,15 @@ O Yume.gg utiliza as seguintes APIs públicas para alimentar suas principais fun
 	Utilidade: Busca imagens aleatórias de personagens de anime para o IconGenerator.  
 	[Documentação Waifu.pics API](https://waifu.pics/docs)
 
+
 - **TheCatAPI**  
 	Utilidade: Exibe uma foto fofa de um gatinho a cada visita na CuteCorner.  
 	[Documentação TheCatAPI](https://thecatapi.com)
+
+- **Catfact.ninja**  
+	Utilidade: Fornece curiosidades aleatórias sobre gatos, usadas na CuteCorner.  
+	[Documentação Catfact.ninja](https://catfact.ninja)
+
+- **LibreTranslate**  
+	Utilidade: Traduz automaticamente as curiosidades de gatos para português.  
+	[Documentação LibreTranslate](https://libretranslate.com/docs/)
