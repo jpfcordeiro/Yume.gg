@@ -39,6 +39,7 @@ export default function Navbar() {
         <li><NavLink to="/gifs">GIFs</NavLink></li>
         <li><NavLink to="/icon">Ícones</NavLink></li>
         <li><NavLink to="/cute">Gatinhos</NavLink></li>
+        <li><NavLink to="/stay-away">FIQUE LONGE</NavLink></li>
       </ul>
     </nav>
   );

@@ -102,11 +102,58 @@ export default function MusicWidget() {
         className="music-widget-btn"
         onClick={() => setOpen(o => !o)}
         initial={{ scale: 1 }}
-        whileHover={{ scale: 1.13 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.18, rotate: 8, boxShadow: '0 0 24px #f72585, 0 2px 16px #90a8ed' }}
+        whileTap={{ scale: 0.93, rotate: -8 }}
         aria-label={open ? 'Fechar player' : 'Abrir player de música'}
+        style={{
+          background: open
+            ? 'linear-gradient(120deg, #f72585 60%, #23243a 100%)'
+            : 'linear-gradient(120deg, #23243a 70%, #f72585 100%)',
+          boxShadow: open
+            ? '0 4px 24px #f72585cc, 0 2px 12px #90a8ed88'
+            : '0 2px 16px #f7258533, 0 1px 8px #90a8ed33',
+          border: open ? '2.5px solid #f72585' : '2px solid #90a8ed',
+          outline: open ? '2px solid #f72585' : 'none',
+          transition: 'all 0.18s',
+          position: 'relative',
+        }}
       >
-        {open ? <FaTimes size={22} /> : <FaMusic size={22} />}
+        <motion.span
+          initial={{ scale: 1 }}
+          animate={open ? { rotate: [0, 10, -10, 0], scale: 1.15 } : { scale: 1 }}
+          transition={{ duration: 0.5 }}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {open ? <FaTimes size={26} color="#fff" /> : <FaMusic size={26} color="#fff" style={{ filter: 'drop-shadow(0 0 8px #f72585)' }} />}
+        </motion.span>
+        {!open && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ delay: 0.1 }}
+            style={{
+              position: 'absolute',
+              left: '110%',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: '#23243aee',
+              color: '#fff',
+              borderRadius: 8,
+              fontSize: 13,
+              padding: '0.5em 1em',
+              boxShadow: '0 2px 8px #f7258533',
+              whiteSpace: 'nowrap',
+              zIndex: 10,
+              fontFamily: 'VT323, monospace',
+            }}
+          >
+            <span style={{ color: '#f72585', fontWeight: 700 }}>Música:</span> <br />
+            <span style={{ color: '#90a8ed' }}>Ouvir playlists públicas</span> <br />
+            <span style={{ color: '#fff' }}>ou</span> <br />
+            <span style={{ color: '#f72585' }}>Conectar Spotify</span>
+          </motion.div>
+        )}
       </motion.button>
       <AnimatePresence>
         {open && (
