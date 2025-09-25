@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const GifContext = createContext();
 
-const GIPHY_API_KEY = 'dc6zaTOxFJmzC'; // Public beta key
+const GIPHY_API_KEY = 'dc6zaTOxFJmzC';
 
 export function GifProvider({ children }) {
   const [query, setQuery] = useState('');

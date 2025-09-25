@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useCute } from '../contexts/CuteContext';
+import cuteNamesDict from '../utils/cuteNames';
 
-const cuteNames = [
-  'Mochi', 'Neko-chan', 'Pompom', 'Yuki', 'Mimi', 'Kira', 'Sakura', 'Luna', 'Chibi', 'Momo', 'Nina', 'Koko', 'Pudding', 'Suki', 'Nana', 'Fofuxo', 'Pipoca', 'Cookie', 'Bubu', 'Pinky'
-];
+const cuteNames = cuteNamesDict.gatos;
 
 function getRandomName() {
   return cuteNames[Math.floor(Math.random() * cuteNames.length)];
