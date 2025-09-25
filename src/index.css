@@ -230,8 +230,15 @@
     opacity: 0.7;
   }
   .footer-content {
-  gap: 0.3rem;
-}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+  }
 .footer-link {
   color: var(--neon-pink);
     justify-content: center;
@@ -286,8 +293,10 @@
     padding: 0.7rem 0 0.5rem 0;
   }
   .footer-content {
-    gap: 0.5rem;
     flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+    width: 100%;
     text-align: center;
   }
   .footer-divider {

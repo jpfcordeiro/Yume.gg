@@ -17,27 +17,33 @@ import { GifProvider } from './contexts/GifContext';
 import { IconProvider } from './contexts/IconContext';
 
 export default function App() {
-  return (
-    <AnimeProvider>
-      <CuteProvider>
-        <GifProvider>
-          <IconProvider>
-            <Router>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/animes" element={<AnimeExplorerPage />} />
-                <Route path="/gifs" element={<GifGalleryPage />} />
-                <Route path="/icon" element={<IconGeneratorPage />} />
-                <Route path="/cute" element={<CuteCornerPage />} />
-              </Routes>
-              <Footer />
-              <Mascot />
-              <MusicWidget />
-            </Router>
-          </IconProvider>
-        </GifProvider>
-      </CuteProvider>
-    </AnimeProvider>
-  );
+  // Debug: log render
+  console.log('App render');
+  try {
+    return (
+      <AnimeProvider>
+        <CuteProvider>
+          <GifProvider>
+            <IconProvider>
+              <Router>
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/animes" element={<AnimeExplorerPage />} />
+                  <Route path="/gifs" element={<GifGalleryPage />} />
+                  <Route path="/icon" element={<IconGeneratorPage />} />
+                  <Route path="/cute" element={<CuteCornerPage />} />
+                </Routes>
+                <Footer />
+                <Mascot />
+                <MusicWidget />
+              </Router>
+            </IconProvider>
+          </GifProvider>
+        </CuteProvider>
+      </AnimeProvider>
+    );
+  } catch (err) {
+    return <div style={{color: '#f72585', fontWeight: 700, padding: 32}}>Erro ao renderizar App: {String(err)}</div>;
+  }
 }

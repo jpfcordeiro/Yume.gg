@@ -1,4 +1,9 @@
 
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { FaTimes, FaMusic } from 'react-icons/fa';
+import SpotifyPlayer from 'react-spotify-web-playback';
+
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = window.location.origin;
 const SCOPES = 'playlist-read-private playlist-read-collaborative';
@@ -24,7 +29,7 @@ export default function MusicWidget() {
   const [loading, setLoading] = useState(false);
 
   // Detecta token OAuth no hash da URL
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.location.hash.includes('access_token')) {
       const params = new URLSearchParams(window.location.hash.replace('#', '?'));
       const t = params.get('access_token');
@@ -34,7 +39,7 @@ export default function MusicWidget() {
   }, []);
 
   // Busca playlists do usuário autenticado
-  React.useEffect(() => {
+  useEffect(() => {
     if (!token) return;
     setLoading(true);
     fetch('https://api.spotify.com/v1/me/playlists?limit=10', {

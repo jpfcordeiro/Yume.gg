@@ -4,7 +4,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const logoUrl = '/assets/logo-yume.png';
+const logoUrl = '/assets/logo_yume.png';
 
 export default function Navbar() {
   return (
