@@ -17,18 +17,21 @@ import { AnimeProvider } from './contexts/AnimeContext';
 import { CuteProvider } from './contexts/CuteContext';
 import { GifProvider } from './contexts/GifContext';
 import { IconProvider } from './contexts/IconContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import useThemeKeyboard from './hooks/useThemeKeyboard';
 
-export default function App() {
-  // Debug: log render
-  console.log('App render');
-  try {
-    return (
-      <AnimeProvider>
-        <CuteProvider>
-          <GifProvider>
-            <IconProvider>
-              <Router>
-                <Navbar />
+// Componente interno para usar o hook dentro do ThemeProvider
+const AppContent = () => {
+  useThemeKeyboard(); // Atalho de teclado 'T' para alternar temas
+
+  return (
+    <AnimeProvider>
+      <CuteProvider>
+        <GifProvider>
+          <IconProvider>
+            <Router>
+              <Navbar />
+              <main style={{ display: 'flex', flexDirection: 'column', flex: 1, width: '100%' }}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/animes" element={<AnimeExplorerPage />} />
@@ -37,14 +40,26 @@ export default function App() {
                   <Route path="/cute" element={<CuteCornerPage />} />
                   <Route path="/stay-away" element={<StayAwayPage />} />
                 </Routes>
-                <Footer />
-                <Mascot />
-                <MusicWidget />
-              </Router>
-            </IconProvider>
-          </GifProvider>
-        </CuteProvider>
-      </AnimeProvider>
+              </main>
+              <Footer />
+              <Mascot />
+              <MusicWidget />
+            </Router>
+          </IconProvider>
+        </GifProvider>
+      </CuteProvider>
+    </AnimeProvider>
+  );
+};
+
+export default function App() {
+  // Debug: log render
+  console.log('App render');
+  try {
+    return (
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
     );
   } catch (err) {
     return <div style={{color: '#f72585', fontWeight: 700, padding: 32}}>Erro ao renderizar App: {String(err)}</div>;

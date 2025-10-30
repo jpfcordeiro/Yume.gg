@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { FaTimes, FaMusic } from 'react-icons/fa';
 
 import SpotifyPlayer from 'react-spotify-web-playback';
+import OptimizedImage from './OptimizedImage';
 
 
 // Playlists públicas fixas (sem login)
@@ -174,7 +175,14 @@ export default function MusicWidget() {
                       className={`music-widget-item${active === pl.id ? ' active' : ''}`}
                       onClick={() => setActive(pl.id)}
                     >
-                      <img src={pl.cover} alt={pl.name} className="music-widget-cover" />
+                      <OptimizedImage
+                        src={pl.cover}
+                        alt={`Capa da playlist: ${pl.name}`}
+                        className="music-widget-cover"
+                        width={100}
+                        height={100}
+                        placeholderColor="#1A1A2E"
+                      />
                       <span className="music-widget-name">{pl.name}</span>
                     </div>
                   ))}
@@ -214,7 +222,14 @@ export default function MusicWidget() {
                       className={`music-widget-item${active === pl.id ? ' active' : ''}`}
                       onClick={() => setActive(pl.id)}
                     >
-                      <img src={pl.images[0]?.url} alt={pl.name} className="music-widget-cover" />
+                      <OptimizedImage
+                        src={pl.images[0]?.url}
+                        alt={`Capa da playlist: ${pl.name}`}
+                        className="music-widget-cover"
+                        width={100}
+                        height={100}
+                        placeholderColor="#1A1A2E"
+                      />
                       <span className="music-widget-name">{pl.name}</span>
                     </div>
                   ))}

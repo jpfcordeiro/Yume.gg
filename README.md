@@ -12,11 +12,11 @@ Bem-vindo(a) ao Yume.gg, o seu novo portal aesthetic! Aqui você pode:
 
 ✨ **Galeria de GIFs:** Encontre o GIF perfeito para expressar seu humor, com temas de animes, Sanrio, e muito mais.
 
-🎨 **Gerador de Ícones:** Cansou da sua foto de perfil? Gere uma nova imagem de personagem de anime com apenas um clique.
+🎨 **Gerador de Ícones Avançado:** Cansou da sua foto de perfil? Gere uma nova imagem de personagem de anime com apenas um clique. Personalize com filtros (brilho, contraste, saturação, blur, sépia), adicione aos favoritos e exporte em PNG, JPG ou WEBP.
 
 🐱 **Momento Fofura:** Receba uma dose de serotonina com uma nova foto de gatinho a cada visita.
 
----
+👹 **Galeria de Vilões:** Explore personagens antagônicos icônicos com curiosidades e frases memoráveis.
 
 ## APIs Utilizadas
 
@@ -55,3 +55,40 @@ Utilidade: Permite autenticação, busca e reprodução de playlists pessoais, a
 - **Pixabay Sounds**  
 Utilidade: Fornece efeitos sonoros online para conquistas, favoritos e interações (via URLs públicas).  
 [Documentação Pixabay Sounds](https://pixabay.com/api/docs/)
+
+## Tecnologias Utilizadas
+
+- **Frontend:** React 18+, Vite, Framer Motion
+- **Estilos:** CSS3 com animações avançadas, gradientes, backdrop filters
+- **APIs:** Integração com múltiplas APIs REST públicas
+- **Armazenamento:** localStorage para favoritos e preferências
+- **Canvas API:** Processamento de imagens para filtros e exportação
+- **Deploy:** Vercel
+
+## Recursos Técnicos
+
+- **Timeout Automático:** 10 segundos em todas as requisições de API
+- **Tratamento de Erros:** Mensagens customizadas em português
+- **Responsividade:** Mobile-first, otimizado para todos os tamanhos de tela
+- **Performance:** Lazy loading, memoization, cleanup de efeitos
+- **Acessibilidade:** ARIA labels, navegação por teclado
+
+---
+
+## Como Usar
+
+### Instalação
+
+```bash
+git clone https://github.com/jpfcordeiro/Yume.gg.git
+cd Yume.gg
+npm install
+npm run dev
+```
+
+### Build para Produção
+
+```bash
+npm run build
+npm run preview
+```
