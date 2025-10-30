@@ -1,83 +1,60 @@
-# Yume.gg
+# Yume.gg ✨🎌
 
-Yume.gg é um dashboard criado como um cantinho especial na internet para os amantes da cultura pop online, especialmente o universo egirl, kawaii e otaku. O objetivo do projeto é centralizar conteúdos e ferramentas divertidas, permitindo que o usuário explore informações sobre seus animes preferidos, encontre GIFs que combinem com sua estética, gere imagens de perfil e tenha uma pausa relaxante com fotos de gatinhos. Construído com React, Vite e um conjunto de APIs públicas, o Yume.gg é um projeto que celebra a cultura da internet.
+<p align="center">
+  <img src="https://cdn3.emoji.gg/emojis/12609.png" alt="sparkles" width="64" height="64" style="vertical-align: middle; margin-right: 8px;" />
+  <strong style="font-size: 1.6rem; vertical-align: middle;">Yume.gg</strong>
+  <img src="https://cdn3.emoji.gg/emojis/6561.png" alt="kawaii" width="64" height="64" style="vertical-align: middle; margin-left: 8px;" />
+</p>
 
----
-
-## Features
-
-Bem-vindo(a) ao Yume.gg, o seu novo portal aesthetic! Aqui você pode:
-
-🎌 **Explorar Animes:** Mergulhe no universo otaku com um buscador completo de animes, com detalhes, sinopses e avaliações.
-
-✨ **Galeria de GIFs:** Encontre o GIF perfeito para expressar seu humor, com temas de animes, Sanrio, e muito mais.
-
-🎨 **Gerador de Ícones Avançado:** Cansou da sua foto de perfil? Gere uma nova imagem de personagem de anime com apenas um clique. Personalize com filtros (brilho, contraste, saturação, blur, sépia), adicione aos favoritos e exporte em PNG, JPG ou WEBP.
-
-🐱 **Momento Fofura:** Receba uma dose de serotonina com uma nova foto de gatinho a cada visita.
-
-👹 **Galeria de Vilões:** Explore personagens antagônicos icônicos com curiosidades e frases memoráveis.
-
-## APIs Utilizadas
-
-O Yume.gg utiliza as seguintes APIs públicas para alimentar suas principais funcionalidades:
-
-- **Jikan API**  
-	Utilidade: Busca todas as informações de animes (títulos, sinopses, imagens, etc.) para a seção AnimeExplorer.  
-	[Documentação Jikan API](https://jikan.moe)
-
-- **GIPHY API**  
-	Utilidade: Pesquisa e exibe GIFs com a estética do site (kawaii, animes, Sanrio, etc.) na GifGallery.  
-	[Documentação GIPHY API](https://developers.giphy.com)
-
-- **Waifu.pics API**  
-	Utilidade: Busca imagens aleatórias de personagens de anime para o IconGenerator.  
-	[Documentação Waifu.pics API](https://waifu.pics/docs)
-
-
-- **TheCatAPI**  
-	Utilidade: Exibe uma foto fofa de um gatinho a cada visita na CuteCorner.  
-	[Documentação TheCatAPI](https://thecatapi.com)
-
-- **Catfact.ninja**  
-	Utilidade: Fornece curiosidades aleatórias sobre gatos, usadas na CuteCorner.  
-	[Documentação Catfact.ninja](https://catfact.ninja)
-
-
-- **LibreTranslate**  
-Utilidade: Traduz automaticamente as curiosidades de gatos para português.  
-[Documentação LibreTranslate](https://libretranslate.com/docs/)
-
-- **Spotify API**  
-Utilidade: Permite autenticação, busca e reprodução de playlists pessoais, além de exibir playlists públicas no MusicWidget.  
-[Documentação Spotify API](https://developer.spotify.com/documentation/web-api/)
-
-- **Pixabay Sounds**  
-Utilidade: Fornece efeitos sonoros online para conquistas, favoritos e interações (via URLs públicas).  
-[Documentação Pixabay Sounds](https://pixabay.com/api/docs/)
-
-## Tecnologias Utilizadas
-
-- **Frontend:** React 18+, Vite, Framer Motion
-- **Estilos:** CSS3 com animações avançadas, gradientes, backdrop filters
-- **APIs:** Integração com múltiplas APIs REST públicas
-- **Armazenamento:** localStorage para favoritos e preferências
-- **Canvas API:** Processamento de imagens para filtros e exportação
-- **Deploy:** Vercel
-
-## Recursos Técnicos
-
-- **Timeout Automático:** 10 segundos em todas as requisições de API
-- **Tratamento de Erros:** Mensagens customizadas em português
-- **Responsividade:** Mobile-first, otimizado para todos os tamanhos de tela
-- **Performance:** Lazy loading, memoization, cleanup de efeitos
-- **Acessibilidade:** ARIA labels, navegação por teclado
+> Um cantinho online kawaii / egirl / otaku — dashboard aesthetic que reúne ferramentas fofas, GIFs, gerador de ícones e muito amor por gatinhos. 🐱💖
 
 ---
 
-## Como Usar
+## ✨ Visão rápida
 
-### Instalação
+Yume.gg é uma aplicação frontend feita com React + Vite que agrega micro-experiências para fãs da cultura pop digital:
+- Explorador de animes com sinopses e imagens.
+- Galeria de GIFs temáticos.
+- Gerador de ícones estilo anime com filtros e exportação.
+- Cantinho dos gatinhos (fotos + curiosidades traduzidas).
+- Widget musical com integração ao Spotify.
+
+Deploy recomendado: Vercel
+
+---
+
+## 🎯 Funcionalidades principais
+
+- 🎌 Explorar Animes: pesquisa com detalhes, imagens e avaliações.
+- ✨ Galeria de GIFs: pesquisa e curadoria aesthetic.
+- 🎨 Gerador de Ícones: filtros (brilho, contraste, saturação, blur, sépia), exporta em PNG/JPG/WEBP.
+- 🐱 Momento Fofura: fotos aleatórias de gatos + curiosidades.
+- 👹 Galeria de Vilões: personagens antagônicos e frases icônicas.
+- 🔒 Favoritos & Preferências: salvos no localStorage.
+- ⚡ Performance: lazy loading, memoization, otimizações com Framer Motion.
+
+---
+
+## 🧩 Tecnologias
+
+- React 18+, Vite  
+- Animações: Framer Motion  
+- 3D / Extras: three.js, @react-three/fiber, @react-three/drei  
+- Ícones: react-icons, tabler-icons-react  
+- Build/Dev: Vite
+
+Scripts úteis (ver também `package.json`):
+```bash
+npm run dev     # desenvolvimento
+npm run build   # build para produção
+npm run preview # preview do build
+```
+
+---
+
+## 🚀 Como rodar localmente
+
+Clone e rode:
 
 ```bash
 git clone https://github.com/jpfcordeiro/Yume.gg.git
@@ -86,9 +63,76 @@ npm install
 npm run dev
 ```
 
-### Build para Produção
+Build para produção:
 
 ```bash
 npm run build
 npm run preview
 ```
+
+---
+
+## 🔗 APIs usadas
+
+- Jikan (animes) — https://jikan.moe  
+- GIPHY (GIFs) — https://developers.giphy.com  
+- waifu.pics (imagens waifu) — https://waifu.pics/docs  
+- TheCatAPI (fotos de gatos) — https://thecatapi.com  
+- Catfact.ninja (curiosidades sobre gatos) — https://catfact.ninja  
+- LibreTranslate (tradução) — https://libretranslate.com/docs  
+- Spotify Web API — https://developer.spotify.com
+
+---
+
+Exemplo Markdown:
+
+```md
+![kawaii-heart](https://cdn3.emoji.gg/emojis/{slug}.png)
+```
+
+Dicas:
+- Visite https://emoji.gg para procurar emojis e copiar o slug desejado.
+- Prefira PNGs pequenos (64x64 ou 128x128) para ícones inline.
+- Use `<img>` no JSX/HTML quando precisar controlar tamanho, alt e layout.
+
+---
+
+## 🫶 Créditos
+
+- Emojis e ícones decorativos: emoji.gg — https://emoji.gg (CDN: https://cdn3.emoji.gg). Obrigado pela biblioteca de assets que ajudou a dar personalidade ao projeto.
+
+Observação: verifique os termos de uso do emoji.gg se pretende redistribuir assets em outros contextos ou builds comerciais.
+
+---
+
+## 🧰 Sugestões visuais para o repositório
+
+- Adicionar screenshots em `public/assets/screenshots/` e referenciá-las no topo do README.
+- Incluir um badge de versão (ex.: GitHub release), CI (se existir), e tempo de deploy do Vercel.
+- Gif curto no topo mostrando o gerador de ícones em ação.
+
+---
+
+## 🤝 Como contribuir
+
+Contribuições são bem-vindas!
+1. Abra uma issue descrevendo a ideia.
+2. Faça um fork e um branch com nome descritivo.
+3. Envie um pull request com mudanças pequenas e ativas.
+4. Documente mudanças importantes no README ou em `docs/`.
+
+---
+
+## 📜 Licença
+
+Projeto licenciado conforme o arquivo `LICENSE` no repositório.
+
+---
+
+## 📬 Contato
+
+Criado por jpfcordeiro — para sugestões, designs ou assets, abra uma issue ou me marque no GitHub.
+
+---
+
+Feito com carinho ✨
