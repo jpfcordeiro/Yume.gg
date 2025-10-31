@@ -9,7 +9,7 @@ export const OptimizedImage = ({
   src,
   alt,
   className = '',
-  placeholderColor = '#1A1A2E',
+  placeholderColor = 'var(--deep-void)',
   onLoad,
   onError,
   width,
@@ -47,13 +47,13 @@ export const OptimizedImage = ({
       {isLoading && !hasError && (
         <motion.div
           className="image-skeleton"
-          style={{
+            style={{
             position: 'absolute',
             width: '100%',
             height: '100%',
             top: 0,
             left: 0,
-            background: `linear-gradient(90deg, ${placeholderColor} 0%, #2a2a4e 50%, ${placeholderColor} 100%)`,
+              background: `linear-gradient(90deg, ${placeholderColor} 0%, rgba(var(--deep-void-rgb), 0.6) 50%, ${placeholderColor} 100%)`,
             backgroundSize: '200% 100%',
             zIndex: 1
           }}
@@ -100,10 +100,10 @@ export const OptimizedImage = ({
             justifyContent: 'center',
             width: '100%',
             height: '100%',
-            background: 'rgba(247, 37, 133, 0.1)',
-            border: '2px dashed rgba(247, 37, 133, 0.5)',
+            background: 'rgba(var(--neon-pink-rgb), 0.1)',
+            border: '2px dashed rgba(var(--neon-pink-rgb), 0.5)',
             borderRadius: '8px',
-            color: 'rgba(224, 211, 240, 0.7)',
+            color: 'rgba(var(--ghost-white-rgb), 0.7)',
             fontSize: '0.9rem',
             padding: '1rem',
             textAlign: 'center',

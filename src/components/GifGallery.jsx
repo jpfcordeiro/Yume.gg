@@ -195,13 +195,13 @@ export default function GifGallery() {
                   rel="noopener noreferrer"
                   title={gif.title || 'Ver no GIPHY'}
                 >
-                  <OptimizedImage
+                    <OptimizedImage
                     src={gif.images?.fixed_height?.url || gif.images?.original?.url}
                     alt={`GIF: ${gif.title || 'GIF aesthetic'}`}
                     className="gif-img"
                     width={240}
                     height={135}
-                    placeholderColor="#0a0e27"
+                    placeholderColor="var(--deep-void)"
                   />
                   <span className="gif-tooltip">Abrir no GIPHY ↗</span>
                 </a>
@@ -215,8 +215,8 @@ export default function GifGallery() {
                   >
                     <Heart
                       size={20}
-                      color="#F72585"
-                      fill={isFavorited(gif.id) ? '#F72585' : 'none'}
+                      color="var(--neon-pink)"
+                      fill={isFavorited(gif.id) ? 'var(--neon-pink)' : 'none'}
                       stroke={2}
                     />
                   </motion.button>
@@ -227,7 +227,7 @@ export default function GifGallery() {
                     whileTap={{ scale: 0.9 }}
                     title="Comparar"
                   >
-            <Share size={20} color="#90A8ED" stroke={2} />
+            <Share size={20} color="var(--pastel-blue)" stroke={2} />
                   </motion.button>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function GifGallery() {
                       src={fav.url}
                       alt={`GIF favorito: ${fav.title}`}
                       className="gif-fav-img"
-                      placeholderColor="#0a0e27"
+                      placeholderColor="var(--deep-void)"
                     />
                   </a>
                   <div className="gif-fav-name">{fav.title}</div>
@@ -321,7 +321,7 @@ export default function GifGallery() {
                       src={gif.url}
                       alt={`GIF em comparação: ${gif.title}`}
                       className="gif-comp-img"
-                      placeholderColor="#0a0e27"
+                      placeholderColor="var(--deep-void)"
                     />
                     <div className="gif-comp-info">
                       <strong>{gif.title}</strong>

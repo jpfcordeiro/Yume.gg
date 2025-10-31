@@ -103,18 +103,18 @@ export default function MusicWidget() {
         className="music-widget-btn"
         onClick={() => setOpen(o => !o)}
         initial={{ scale: 1 }}
-        whileHover={{ scale: 1.18, rotate: 8, boxShadow: '0 0 24px #f72585, 0 2px 16px #90a8ed' }}
+        whileHover={{ scale: 1.18, rotate: 8, boxShadow: '0 0 24px var(--neon-pink), 0 2px 16px var(--pastel-blue)' }}
         whileTap={{ scale: 0.93, rotate: -8 }}
         aria-label={open ? 'Fechar player' : 'Abrir player de música'}
         style={{
           background: open
-            ? 'linear-gradient(120deg, #f72585 60%, #23243a 100%)'
-            : 'linear-gradient(120deg, #23243a 70%, #f72585 100%)',
+            ? 'linear-gradient(120deg, var(--neon-pink) 60%, var(--deep-void) 100%)'
+            : 'linear-gradient(120deg, var(--deep-void) 70%, var(--neon-pink) 100%)',
           boxShadow: open
-            ? '0 4px 24px #f72585cc, 0 2px 12px #90a8ed88'
-            : '0 2px 16px #f7258533, 0 1px 8px #90a8ed33',
-          border: open ? '2.5px solid #f72585' : '2px solid #90a8ed',
-          outline: open ? '2px solid #f72585' : 'none',
+            ? '0 4px 24px rgba(var(--neon-pink-rgb), 0.8), 0 2px 12px rgba(var(--pastel-blue-rgb), 0.53)'
+            : '0 2px 16px rgba(var(--neon-pink-rgb), 0.2), 0 1px 8px rgba(var(--pastel-blue-rgb), 0.2)',
+          border: open ? '2.5px solid var(--neon-pink)' : '2px solid var(--pastel-blue)',
+          outline: open ? '2px solid var(--neon-pink)' : 'none',
           transition: 'all 0.18s',
           position: 'relative',
         }}
@@ -125,7 +125,7 @@ export default function MusicWidget() {
           transition={{ duration: 0.5 }}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          {open ? <FaTimes size={26} color="#fff" /> : <FaMusic size={26} color="#fff" style={{ filter: 'drop-shadow(0 0 8px #f72585)' }} />}
+          {open ? <FaTimes size={26} color="var(--ghost-white)" /> : <FaMusic size={26} color="var(--ghost-white)" style={{ filter: 'drop-shadow(0 0 8px var(--neon-pink))' }} />}
         </motion.span>
         {!open && (
           <motion.div
@@ -133,26 +133,26 @@ export default function MusicWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ delay: 0.1 }}
-            style={{
+              style={{
               position: 'absolute',
               left: '110%',
               top: '50%',
               transform: 'translateY(-50%)',
-              background: '#23243aee',
-              color: '#fff',
+              background: 'rgba(var(--deep-void-rgb), 0.93)',
+              color: 'var(--ghost-white)',
               borderRadius: 8,
               fontSize: 13,
               padding: '0.5em 1em',
-              boxShadow: '0 2px 8px #f7258533',
+              boxShadow: '0 2px 8px rgba(var(--neon-pink-rgb), 0.2)',
               whiteSpace: 'nowrap',
               zIndex: 10,
               fontFamily: 'VT323, monospace',
             }}
           >
-            <span style={{ color: '#f72585', fontWeight: 700 }}>Música:</span> <br />
-            <span style={{ color: '#90a8ed' }}>Ouvir playlists públicas</span> <br />
-            <span style={{ color: '#fff' }}>ou</span> <br />
-            <span style={{ color: '#f72585' }}>Conectar Spotify</span>
+            <span style={{ color: 'var(--neon-pink)', fontWeight: 700 }}>Música:</span> <br />
+            <span style={{ color: 'var(--pastel-blue)' }}>Ouvir playlists públicas</span> <br />
+            <span style={{ color: 'var(--ghost-white)' }}>ou</span> <br />
+            <span style={{ color: 'var(--neon-pink)' }}>Conectar Spotify</span>
           </motion.div>
         )}
       </motion.button>
@@ -181,7 +181,7 @@ export default function MusicWidget() {
                         className="music-widget-cover"
                         width={100}
                         height={100}
-                        placeholderColor="#1A1A2E"
+                        placeholderColor="var(--deep-void)"
                       />
                       <span className="music-widget-name">{pl.name}</span>
                     </div>
@@ -196,8 +196,8 @@ export default function MusicWidget() {
                   <div className="music-widget-tip">Dica: Clique em uma playlist para ouvir no Spotify. Para playlists pessoais, conecte sua conta!</div>
                 </div>
                 <div style={{marginTop: 12, textAlign: 'center'}}>
-                  <button className="btn-secondary" onClick={() => setShowPublic(false)} style={{marginRight: 8}}>Conectar Spotify</button>
-                </div>
+                    <button className="btn-secondary" onClick={() => setShowPublic(false)} style={{marginRight: 8}}>Conectar Spotify</button>
+                  </div>
               </>
             )}
             {!showPublic && !token ? (
@@ -205,14 +205,14 @@ export default function MusicWidget() {
                 Conectar com Spotify
               </button>
             ) : loading ? (
-              <div style={{color: '#90a8ed', margin: '1.2em 0'}}>
+              <div style={{color: 'var(--pastel-blue)', margin: '1.2em 0'}}>
                 <div className="cute-loader">
                   <div className="cute-paw"><span role="img" aria-label="Pata">🐾</span></div>
                   <div className="cute-loader-text">Carregando playlists...</div>
                 </div>
               </div>
             ) : playlists.length === 0 && !showPublic && token ? (
-              <div style={{color: '#f72585', margin: '1.2em 0'}}>Nenhuma playlist encontrada.</div>
+              <div style={{color: 'var(--neon-pink)', margin: '1.2em 0'}}>Nenhuma playlist encontrada.</div>
             ) : !showPublic && token ? (
               <>
                 <div className="music-widget-list">
@@ -228,7 +228,7 @@ export default function MusicWidget() {
                         className="music-widget-cover"
                         width={100}
                         height={100}
-                        placeholderColor="#1A1A2E"
+                        placeholderColor="var(--deep-void)"
                       />
                       <span className="music-widget-name">{pl.name}</span>
                     </div>
@@ -240,17 +240,17 @@ export default function MusicWidget() {
                       uris={active ? [`spotify:playlist:${active}`] : []}
                       autoPlay={false}
                       showSaveIcon
-                      styles={{
-                        activeColor: '#fff',
-                        bgColor: '#23243a',
-                        color: '#fff',
-                        loaderColor: '#f72585',
-                        sliderColor: '#f72585',
-                        trackArtistColor: '#90a8ed',
-                        trackNameColor: '#fff',
+                        styles={{
+                        activeColor: 'var(--ghost-white)',
+                        bgColor: 'var(--deep-void)',
+                        color: 'var(--ghost-white)',
+                        loaderColor: 'var(--neon-pink)',
+                        sliderColor: 'var(--neon-pink)',
+                        trackArtistColor: 'var(--pastel-blue)',
+                        trackNameColor: 'var(--ghost-white)',
                         height: 80,
                         borderRadius: 14,
-                        boxShadow: '0 2px 18px #f7258533, 0 1px 8px #90a8ed33',
+                        boxShadow: '0 2px 18px rgba(var(--neon-pink-rgb), 0.2), 0 1px 8px rgba(var(--pastel-blue-rgb), 0.2)',
                         fontFamily: 'VT323, monospace',
                       }}
                       layout="responsive"

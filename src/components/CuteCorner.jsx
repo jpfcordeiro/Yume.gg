@@ -239,7 +239,7 @@ export default function CuteCorner() {
                   src={cat.url}
                   alt="Gatinho fofo"
                   className="cute-img"
-                  placeholderColor="#0a0e27"
+                  placeholderColor="var(--deep-void)"
                 />
                 <motion.div className="cute-name" initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   {catName}
@@ -266,8 +266,8 @@ export default function CuteCorner() {
                   >
                     <Heart
                       size={20}
-                      color="#F72585"
-                      fill={isFavorited(cat.url) ? '#F72585' : 'none'}
+                      color="var(--neon-pink)"
+                      fill={isFavorited(cat.url) ? 'var(--neon-pink)' : 'none'}
                       stroke={2}
                     />
                     <span>Favoritar</span>
@@ -422,7 +422,7 @@ export default function CuteCorner() {
                       src={cat.url}
                       alt={`Gatinho em comparação: ${cat.name}`}
                       className="cute-comp-img"
-                      placeholderColor="#0a0e27"
+                      placeholderColor="var(--deep-void)"
                     />
                     <div className="cute-comp-info">
                       <strong>{cat.name}</strong>

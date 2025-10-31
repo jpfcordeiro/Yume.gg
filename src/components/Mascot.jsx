@@ -83,14 +83,14 @@ export default function Mascot() {
           >
             {/* SVG de gatinho kawaii */}
             <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="35" cy="45" rx="22" ry="18" fill="#fff" stroke="#23243a" strokeWidth="2"/>
-              <ellipse cx="25" cy="40" rx="3.5" ry="4.5" fill="#23243a"/>
-              <ellipse cx="45" cy="40" rx="3.5" ry="4.5" fill="#23243a"/>
-              <ellipse cx="35" cy="52" rx="6" ry="3" fill="#f72585"/>
-              <path d="M18 30 Q10 10 28 18" stroke="#23243a" strokeWidth="2" fill="none"/>
-              <path d="M52 30 Q60 10 42 18" stroke="#23243a" strokeWidth="2" fill="none"/>
-              <ellipse cx="20" cy="28" rx="4" ry="7" fill="#fff" stroke="#23243a" strokeWidth="2"/>
-              <ellipse cx="50" cy="28" rx="4" ry="7" fill="#fff" stroke="#23243a" strokeWidth="2"/>
+              <ellipse cx="35" cy="45" rx="22" ry="18" fill="var(--ghost-white)" stroke="var(--deep-void)" strokeWidth="2"/>
+              <ellipse cx="25" cy="40" rx="3.5" ry="4.5" fill="var(--deep-void)"/>
+              <ellipse cx="45" cy="40" rx="3.5" ry="4.5" fill="var(--deep-void)"/>
+              <ellipse cx="35" cy="52" rx="6" ry="3" fill="var(--neon-pink)"/>
+              <path d="M18 30 Q10 10 28 18" stroke="var(--deep-void)" strokeWidth="2" fill="none"/>
+              <path d="M52 30 Q60 10 42 18" stroke="var(--deep-void)" strokeWidth="2" fill="none"/>
+              <ellipse cx="20" cy="28" rx="4" ry="7" fill="var(--ghost-white)" stroke="var(--deep-void)" strokeWidth="2"/>
+              <ellipse cx="50" cy="28" rx="4" ry="7" fill="var(--ghost-white)" stroke="var(--deep-void)" strokeWidth="2"/>
             </svg>
           </motion.div>
         </div>

@@ -27,7 +27,7 @@ export const itemHidden = {
 
 export const cardHover = {
   scale: 1.05,
-  boxShadow: '0 12px 32px rgba(247, 37, 133, 0.25)',
+  boxShadow: '0 12px 32px rgba(var(--neon-pink-rgb), 0.25)',
   transition: { type: 'spring', stiffness: 300, damping: 20 },
 };
 

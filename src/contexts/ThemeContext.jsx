@@ -86,6 +86,34 @@ export const ThemeProvider = ({ children }) => {
     root.style.setProperty('--ghost-white', themeConfig.text);
     root.style.setProperty('--mid-gray', themeConfig.gray);
 
+    // Converter hex para RGB e expor versões RGB para permitir uso em rgba(...)
+    const hexToRgb = (hex) => {
+      const clean = hex.replace('#', '');
+      const bigint = parseInt(clean, 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `${r}, ${g}, ${b}`;
+    };
+
+    try {
+      root.style.setProperty('--neon-pink-rgb', hexToRgb(themeConfig.primary));
+      root.style.setProperty('--pastel-blue-rgb', hexToRgb(themeConfig.secondary));
+      root.style.setProperty('--deep-void-rgb', hexToRgb(themeConfig.background));
+      root.style.setProperty('--ghost-white-rgb', hexToRgb(themeConfig.text));
+      root.style.setProperty('--mid-gray-rgb', hexToRgb(themeConfig.gray));
+    } catch (e) {
+      // Se houver valor não-hex, ignorar a conversão (fallback)
+      // console.warn('Não foi possível converter cor para RGB', e);
+    }
+
+    // Disparar evento customizado para que componentes JS (three.js, etc.) possam reagir
+    try {
+      const event = new CustomEvent('yume:theme-changed', { detail: themeConfig });
+      window.dispatchEvent(event);
+    } catch (err) {
+      // fallback: nada
+    }
     // Aplicar atributo para identificar tema
     root.setAttribute('data-theme', themeName);
 

@@ -62,6 +62,6 @@ export default function App() {
       </ThemeProvider>
     );
   } catch (err) {
-    return <div style={{color: '#f72585', fontWeight: 700, padding: 32}}>Erro ao renderizar App: {String(err)}</div>;
+    return <div style={{color: 'var(--neon-pink)', fontWeight: 700, padding: 32}}>Erro ao renderizar App: {String(err)}</div>;
   }
 }

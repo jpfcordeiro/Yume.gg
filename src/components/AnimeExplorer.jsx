@@ -154,7 +154,7 @@ export default function AnimeExplorer() {
                       key={sug}
                       className={`suggestion-item ${highlighted === idx ? 'highlighted' : ''}`}
                       onMouseDown={() => handleSuggestionClick(sug)}
-                      whileHover={{ backgroundColor: '#f0f0ff' }}
+                      whileHover={{ backgroundColor: 'var(--ghost-white)' }}
                     >
                       {sug}
                     </motion.li>
@@ -295,7 +295,7 @@ export default function AnimeExplorer() {
                     alt={`Capa do anime: ${anime.title}`}
                     width={225}
                     height={320}
-                    placeholderColor="#1A1A2E"
+                    placeholderColor="var(--deep-void)"
                   />
                   <h4>{anime.title}</h4>
                   <div className="comparison-stats">
@@ -344,13 +344,13 @@ export default function AnimeExplorer() {
                 whileHover={{ y: -8 }}
               >
                 <div className="anime-card-image">
-                  <OptimizedImage
+                    <OptimizedImage
                     src={anime.images.jpg.image_url}
                     alt={`Capa do anime: ${anime.title}`}
                     className="anime-card-img"
                     width={225}
                     height={320}
-                    placeholderColor="#1A1A2E"
+                    placeholderColor="var(--deep-void)"
                   />
                   <motion.button
                     className={`anime-favorite-btn ${isFavorited(anime.mal_id) ? 'favorited' : ''}`}
@@ -361,8 +361,8 @@ export default function AnimeExplorer() {
                   >
                     <Heart
                       size={24}
-                      color="#F72585"
-                      fill={isFavorited(anime.mal_id) ? '#F72585' : 'none'}
+                      color="var(--neon-pink)"
+                      fill={isFavorited(anime.mal_id) ? 'var(--neon-pink)' : 'none'}
                       stroke={2}
                     />
                   </motion.button>
@@ -437,7 +437,7 @@ export default function AnimeExplorer() {
                       className="anime-card-img"
                       width={225}
                       height={320}
-                      placeholderColor="#1A1A2E"
+                      placeholderColor="var(--deep-void)"
                     />
                     <motion.button
                       className={`anime-favorite-btn ${isFavorited(anime.mal_id) ? 'favorited' : ''}`}
@@ -448,8 +448,8 @@ export default function AnimeExplorer() {
                     >
                       <Heart
                         size={24}
-                        color="#F72585"
-                        fill={isFavorited(anime.mal_id) ? '#F72585' : 'none'}
+                        color="var(--neon-pink)"
+                        fill={isFavorited(anime.mal_id) ? 'var(--neon-pink)' : 'none'}
                         stroke={2}
                       />
                     </motion.button>
@@ -524,7 +524,7 @@ export default function AnimeExplorer() {
               alt={`Capa do anime: ${randomAnime.title}`}
               width={225}
               height={320}
-              placeholderColor="#1A1A2E"
+              placeholderColor="var(--deep-void)"
             />
             <div className="random-anime-info">
               <div className="title">{randomAnime.title}</div>

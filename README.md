@@ -1,9 +1,7 @@
-# Yume.gg ✨🎌
-
-<p align="center">
-  <img src="https://cdn3.emoji.gg/emojis/12609.png" alt="sparkles" width="64" height="64" style="vertical-align: middle; margin-right: 8px;" />
+<p style="text-align: center">
+  <a href="https://emoji.gg/emoji/845068-heartsparkles" aria-label="HeartSparkles"><img src="https://cdn3.emoji.gg/emojis/845068-heartsparkles.gif" alt="HeartSparkles" width="32" height="32" style="vertical-align: middle; margin-right: 8px;" /></a>
   <strong style="font-size: 1.6rem; vertical-align: middle;">Yume.gg</strong>
-  <img src="https://cdn3.emoji.gg/emojis/6561.png" alt="kawaii" width="64" height="64" style="vertical-align: middle; margin-left: 8px;" />
+  <a href="https://emoji.gg/emoji/983311-hellokitty" aria-label="HelloKitty"><img src="https://cdn3.emoji.gg/emojis/983311-hellokitty.gif" alt="HelloKitty" width="32" height="32" style="vertical-align: middle; margin-left: 8px;" /></a>
 </p>
 
 > Um cantinho online kawaii / egirl / otaku — dashboard aesthetic que reúne ferramentas fofas, GIFs, gerador de ícones e muito amor por gatinhos. 🐱💖
@@ -94,22 +92,6 @@ Dicas:
 - Visite https://emoji.gg para procurar emojis e copiar o slug desejado.
 - Prefira PNGs pequenos (64x64 ou 128x128) para ícones inline.
 - Use `<img>` no JSX/HTML quando precisar controlar tamanho, alt e layout.
-
----
-
-## 🫶 Créditos
-
-- Emojis e ícones decorativos: emoji.gg — https://emoji.gg (CDN: https://cdn3.emoji.gg). Obrigado pela biblioteca de assets que ajudou a dar personalidade ao projeto.
-
-Observação: verifique os termos de uso do emoji.gg se pretende redistribuir assets em outros contextos ou builds comerciais.
-
----
-
-## 🧰 Sugestões visuais para o repositório
-
-- Adicionar screenshots em `public/assets/screenshots/` e referenciá-las no topo do README.
-- Incluir um badge de versão (ex.: GitHub release), CI (se existir), e tempo de deploy do Vercel.
-- Gif curto no topo mostrando o gerador de ícones em ação.
 
 ---
 

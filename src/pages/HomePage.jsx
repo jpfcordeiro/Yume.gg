@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import cuteNames from '../utils/cuteNames';
 import { FaCat, FaFilm, FaSmile, FaImage } from 'react-icons/fa';
 
-const logoUrl = '/assets/logo-yume.png';
+const logoUrl = '/assets/logo_yume.png';
 
 const stats = [
   { label: 'Animes', value: '50k+', icon: '🎌' },
@@ -19,7 +19,7 @@ const features = [
   {
     title: 'Anime Explorer',
     desc: 'Descubra animes, busque e explore detalhes.',
-    icon: <FaFilm size={36} color="#90A8ED" />,
+  icon: <FaFilm size={36} color="var(--pastel-blue)" />,
     route: '/animes',
     color: 'var(--pastel-blue)',
     badge: '🎌 Novo Comparador'
@@ -27,7 +27,7 @@ const features = [
   {
     title: 'Gif Gallery',
     desc: 'Procure e compartilhe GIFs divertidos.',
-    icon: <FaImage size={36} color="#F72585" />,
+  icon: <FaImage size={36} color="var(--neon-pink)" />,
     route: '/gifs',
     color: 'var(--neon-pink)',
     badge: '🎬 Favoritos'
@@ -35,7 +35,7 @@ const features = [
   {
     title: 'Icon Generator',
     desc: 'Gere ícones kawaii para seu perfil.',
-    icon: <FaSmile size={36} color="#E0D3F0" />,
+  icon: <FaSmile size={36} color="var(--ghost-white)" />,
     route: '/icon',
     color: 'var(--ghost-white)',
     badge: '✨ 5 Filtros'
@@ -43,7 +43,7 @@ const features = [
   {
     title: 'Cute Corner',
     desc: 'Veja fotos de gatinhos fofos aleatórios.',
-    icon: <FaCat size={36} color="#F72585" />,
+  icon: <FaCat size={36} color="var(--neon-pink)" />,
     route: '/cute',
     color: 'var(--neon-pink)',
     badge: '🐱 Conquistas'
@@ -73,9 +73,9 @@ export default function HomePage() {
             scale: [1, 1.08, 1],
             y: 0,
             filter: [
-              'drop-shadow(0 2px 16px rgba(144,168,237,0.13))',
-              'drop-shadow(0 4px 32px #F7258580)',
-              'drop-shadow(0 2px 16px rgba(144,168,237,0.13))'
+              'drop-shadow(0 2px 16px rgba(var(--pastel-blue-rgb), 0.13))',
+              'drop-shadow(0 4px 32px rgba(var(--neon-pink-rgb), 0.5))',
+              'drop-shadow(0 2px 16px rgba(var(--pastel-blue-rgb), 0.13))'
             ]
           }}
           transition={{
@@ -92,7 +92,7 @@ export default function HomePage() {
         <motion.p className="home-greeting" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}>Bem-vindo(a) ao seu cantinho aesthetic! ✨</motion.p>
 
         {/* Stats Section */}
-        <motion.div 
+        <motion.div
           className="home-stats"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export default function HomePage() {
         >
           <h3 className="about-title">O que é Yume.gg?</h3>
           <p className="about-text">
-            Yume.gg (Sonho em japonês) é um dashboard aesthetic completo com múltiplas funcionalidades para fãs de anime, gatos e conteúdo kawaii! 
+            Yume.gg (Sonho em japonês) é um dashboard aesthetic completo com múltiplas funcionalidades para fãs de anime, gatos e conteúdo kawaii!
             Explore animes, crie ícones personalizados, descubra GIFs incríveis e veja gatinhos fofos - tudo em um só lugar! ✨
           </p>
         </motion.div>
